@@ -1,0 +1,16 @@
+Package: robosynth
+Type: Package
+Title: Robust Synthetic Data Generation with Data-Augmented Multiple Imputation
+Version: 0.1-0
+Date: 2021-07-20
+Author:  Simon Grund [aut,cre], Alexander Robitzsch [aut,cre], Oliver Luedtke [aut]
+Maintainer: Simon Grund <grund@ipn.uni-kiel.de>
+BugReports: https://github.com/simongrund1/robosynth/issues
+Depends: R (>= 3.5.0)
+Imports: nnet, stats, methods, utils
+Suggests: knitr, rmarkdown
+LazyData: true
+LazyLoad: true
+Description: Provides methods for synthetic data generation using the data-augmented multiple imputation approach by Jiang et al. (2021; <doi:10.1080/01621459.2021.1909597>) and tools for handling and analyzing synthetic data.
+License: GPL (>=2)
+VignetteBuilder: knitr

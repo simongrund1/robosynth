@@ -1,0 +1,24 @@
+import(stats)
+import(methods)
+import(nnet)
+
+importFrom(utils, flush.console)
+
+export(
+  as.robosynth.list,
+  extract,
+  mask_categorical,
+  mask_continuous,
+  pool,
+  combine_models,
+  synthesis_model,
+  masking_model,
+  synthesize
+)
+
+S3method(print, robosynth)
+S3method(summary, robosynth)
+S3method(with, robosynth.list)
+S3method(within, robosynth.list)
+S3method(print, robosynth.pooled)
+S3method(summary, robosynth.pooled)
