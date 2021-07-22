@@ -1,4 +1,4 @@
-# `robosynth`
+# robosynth
 
 ### Robust synthetic data generation with data-augmented multiple imputation
 
