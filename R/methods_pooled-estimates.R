@@ -2,7 +2,7 @@
 
 # * print
 
-print.robosynth.pooled <- function(x, digits = 5, ...) {
+print.robosynth.pooled.estimates <- function(x, digits = 5, ...) {
 
   est <- x$estimates
   out <- matrix("", nrow = nrow(est) + 1, ncol = 5)
@@ -34,7 +34,7 @@ print.robosynth.pooled <- function(x, digits = 5, ...) {
 
 # * summary
 
-summary.robosynth.pooled <- function(object, ...) {
+summary.robosynth.pooled.estimates <- function(object, ...) {
 
   UseMethod("print", object)
 
