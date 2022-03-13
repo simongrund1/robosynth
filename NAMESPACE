@@ -7,18 +7,24 @@ importFrom(utils, flush.console)
 export(
   as.robosynth.list,
   extract,
-  mask_categorical,
-  mask_continuous,
-  pool,
-  combine_models,
-  synthesis_model,
-  masking_model,
-  synthesize
+  shuffle,
+  mask.categorical,
+  mask.continuous,
+  pool.estimates,
+  combine.models,
+  synthesis.model,
+  masking.model,
+  synthesize,
+  compute.risk,
+  replace.high.risk
 )
 
 S3method(print, robosynth)
 S3method(summary, robosynth)
 S3method(with, robosynth.list)
 S3method(within, robosynth.list)
-S3method(print, robosynth.pooled)
-S3method(summary, robosynth.pooled)
+S3method(print, robosynth.pooled.estimates)
+S3method(summary, robosynth.pooled.estimates)
+S3method(print, robosynth.risk)
+S3method(summary, robosynth.risk)
+S3method(print, robosynth.risk.summary)
