@@ -1,24 +1,25 @@
-\name{extract}
-\alias{extract}
+\name{shuffle}
+\alias{shuffle}
 
-\title{Extract list of synthetic data sets}
+\title{Shuffle list of data sets}
 
 \description{
-Extracts a list of synthetic data sets from a synthetic data object.
+Shuffles the rows in a list of synthetic data sets
 }
 
 \usage{
-extract(object, drop = TRUE)
+shuffle(data)
 }
 
 \arguments{
-\item{object}{object of class \code{robosynth} as returned by \code{\link{synthesize}}.}
-\item{drop}{logical: if \code{TRUE} (the default), the masked copies are dropped from each data set.}
+\item{data}{list of synthetic data sets as returned by \code{\link{extract}} (or similar).}
 }
 
 \details{
-This function extracts a list of synthetic data sets from a synthetic data object as returned by \code{\link{synthesize}}.
-By default, the function drops the masked copies generated with \code{\link{mask.continuous}} and \code{\link{mask.categorical}} from the data set.
+This function shuffles the rows of a list of synthetic data sets and removes row names in the process.
+This is intended to provide an additional layer of protection and (identification) disclosure attempts.
+
+See also \code{\link{compute.risk}} and \code{\link{replace.high.risk}} for disclosure risk computation.
 }
 
 \value{
@@ -28,7 +29,7 @@ An object of class \code{robosynth.list} (a list of data frames).
 \author{Simon Grund}
 
 \seealso{
-\code{\link{synthesize}}, \code{\link{mask.categorical}}, \code{\link{mask.continuous}}
+\code{\link{extract}}, \code{\link{compute.risk}}, \code{\link{replace.high.risk}}
 }
 
 \examples{
@@ -59,11 +60,9 @@ models <- combine.models(
 # run synthesis
 syn <- synthesize(models = models, m = 5, iter = 5)
 
-# * Example 1:
-
+# extract list of synthetic data sets
 synlist <- extract(syn)
 
-# * Example 2: keep masked copies
-
-synlist <- extract(syn, drop = FALSE)
+# shuffle rows
+synlist <- shuffle(synlist)
 }

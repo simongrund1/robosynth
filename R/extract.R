@@ -1,6 +1,6 @@
 # // Extract list of synthetic data sets
 
-extract <- function(object, drop = TRUE, shuffle = FALSE) {
+extract <- function(object, drop = TRUE) {
 
   syn_list <- object$syn
 
@@ -17,17 +17,7 @@ extract <- function(object, drop = TRUE, shuffle = FALSE) {
     }
   }
 
-  # shuffle cases
-  if (shuffle) {
-    for(jj in 1L:m) {
-      ind_row <- sample(1L:N, size = N)
-      syn_list[[jj]] <- syn_list[[jj]][ind_row, ]
-      rownames(syn_list[[jj]]) <- NULL
-    }
-  }
-
   class(syn_list) <- c("robosynth.list", "list")
   return(syn_list)
 
 }
-
