@@ -1,6 +1,6 @@
 # // Masking (categorical variables)
 
-mask_categorical <- function(x, probability, .matrix) {
+mask.categorical <- function(x, probability, .matrix) {
 
   # check input
   if (!is.factor(x)) stop("Categorical masking can only be used on factors.")

@@ -1,6 +1,6 @@
 # // Pre-processing of synthesis models
 
-process_synthesis_models <- function(models, data, variables) {
+process.synthesis.models <- function(models, data, variables) {
 
   Nm <- length(models)
   Nc <- ncol(data)

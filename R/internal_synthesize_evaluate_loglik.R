@@ -1,6 +1,6 @@
 # // Likelihood evaluation
 
-evaluate_loglik <- function(model, outcome, data) {
+evaluate.loglik <- function(model, outcome, data) {
 
   # continuous
   if (attr(model, "model_type") == "continuous") {

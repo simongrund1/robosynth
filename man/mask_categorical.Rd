@@ -1,5 +1,5 @@
-\name{mask_categorical}
-\alias{mask_categorical}
+\name{mask.categorical}
+\alias{mask.categorical}
 
 \title{Create masked copies of categorical variables}
 
@@ -8,7 +8,7 @@ Creates masked copies of categorical variables.
 }
 
 \usage{
-mask_categorical(x, probability, .matrix)
+mask.categorical(x, probability, .matrix)
 }
 
 \arguments{
@@ -39,7 +39,7 @@ Kuechenhoff, H., Mwalili, S. M., & Lesaffre, E. (2006). A general method for dea
 \examples{
 # using 'probability'
 sociosexuality <- within(sociosexuality, {
-  m_sexpref <- mask_categorical(sexpref, probability = .60)
+  m_sexpref <- mask.categorical(sexpref, probability = .60)
 })
 
 # equivalent specification using '.matrix'
@@ -48,7 +48,7 @@ M <- matrix(c(.60, .20, .20,
               .20, .20, .60), 3, 3)
 
 sociosexuality <- within(sociosexuality, {
-  m_sexpref <- mask_categorical(sexpref, .matrix = M)
+  m_sexpref <- mask.categorical(sexpref, .matrix = M)
 })
 }
 

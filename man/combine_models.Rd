@@ -1,5 +1,5 @@
-\name{combine_models}
-\alias{combine_models}
+\name{combine.models}
+\alias{combine.models}
 
 \title{Combine synthesis and masking models}
 
@@ -8,11 +8,11 @@ Combines and checks the synthesis and masking models to be included in the synth
 }
 
 \usage{
-combine_models(..., data)
+combine.models(..., data)
 }
 
 \arguments{
-\item{\dots}{one or more models of class \code{robosynth.synthesis.model} as returned by \code{\link{synthesis_model}} or \code{robosynth.masking.model} as returned by \code{\link{masking_model}}.}
+\item{\dots}{one or more models of class \code{robosynth.synthesis.model} as returned by \code{\link{synthesis.model}} or \code{robosynth.masking.model} as returned by \code{\link{masking.model}}.}
 \item{data}{data frame: the original data, for which synthetic data should be generated.}
 }
 
@@ -28,27 +28,27 @@ An object of class \code{robosynth.model.list}, containing the combined specific
 \author{Simon Grund}
 
 \seealso{
-\code{\link{synthesis_model}}, \code{\link{masking_model}}, \code{\link{synthesize}}
+\code{\link{synthesis.model}}, \code{\link{masking.model}}, \code{\link{synthesize}}
 }
 
 \examples{
 # create of masked copies
 sociosexuality <- within(sociosexuality, {
-  m_sex <- mask_categorical(sex, probability = .80)
-  m_sexpref <- mask_categorical(sexpref, probability = .60)
-  m_age <- mask_continuous(age, reliability = .90)
+  m_sex <- mask.categorical(sex, probability = .80)
+  m_sexpref <- mask.categorical(sexpref, probability = .60)
+  m_age <- mask.continuous(age, reliability = .90)
 })
 
 # combine synthesis and masking models
-combine_models(
+combine.models(
 
-  synthesis_model(sex ~ 1, type = "binary"),
-  synthesis_model(sexpref ~ 1 + sex, type = "categorical"),
-  synthesis_model(age ~ 1 + sex + sexpref, type = "continuous"),
+  synthesis.model(sex ~ 1, type = "binary"),
+  synthesis.model(sexpref ~ 1 + sex, type = "categorical"),
+  synthesis.model(age ~ 1 + sex + sexpref, type = "continuous"),
 
-  masking_model(m_sex ~ sex, type = "binary"),
-  masking_model(m_sexpref ~ sexpref, type = "categorical"),
-  masking_model(m_age ~ age, type = "continuous"),
+  masking.model(m_sex ~ sex, type = "binary"),
+  masking.model(m_sexpref ~ sexpref, type = "categorical"),
+  masking.model(m_age ~ age, type = "continuous"),
 
   data = sociosexuality
 

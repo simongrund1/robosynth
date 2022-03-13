@@ -1,12 +1,12 @@
 # // Synthesis model specification (masking model constructor)
 
-masking_model <- function(formula, type, mask = NULL, ...) {
+masking.model <- function(formula, type, mask = NULL, ...) {
 
   type <- match.arg(type, choices = c("continuous", "binary", "categorical"))
   dots <- list(...)
 
   # check input
-  check_model_formula(formula, max.vars = 2)
+  check.model.formula(formula, max.vars = 2)
 
   if (type == "continuous") {
     if (!is.null(mask) && (!is.numeric(mask) || length(mask) > 1)) {

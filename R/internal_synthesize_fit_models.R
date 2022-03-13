@@ -1,6 +1,6 @@
 # // Model fitting
 
-fit_synthesis_models <- function(models, data) {
+fit.synthesis.models <- function(models, data) {
 
   Nm <- length(models)
 

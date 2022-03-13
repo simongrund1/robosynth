@@ -1,6 +1,6 @@
 # // Pre-processing of target variables
 
-process_variables <- function(data, variables) {
+process.variables <- function(data, variables) {
 
   Nv <- length(variables)
 

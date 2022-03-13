@@ -1,6 +1,6 @@
 # // Masking (continuous variables)
 
-mask_continuous <- function(x, reliability, .sd) {
+mask.continuous <- function(x, reliability, .sd) {
 
   # check input
   if (missing(reliability) == missing(.sd)) {

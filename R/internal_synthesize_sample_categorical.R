@@ -1,6 +1,6 @@
 # // Sampling for categorical data
 
-sample_categorical <- function(n = nrow(probs), k = ncol(probs), probs) {
+sample.categorical <- function(n = nrow(probs), k = ncol(probs), probs) {
 
   u <- runif(n)
 

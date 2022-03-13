@@ -5,6 +5,7 @@
     "Please report all bugs via the GitHub issue tracker.",
     sep = "\n"
   )
+
   packageStartupMessage(msg)
 
 }

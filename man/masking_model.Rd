@@ -1,5 +1,5 @@
-\name{masking_model}
-\alias{masking_model}
+\name{masking.model}
+\alias{masking.model}
 
 \title{Define masking models}
 
@@ -8,7 +8,7 @@ Defines a masking model for the inclusion in the synthesis.
 }
 
 \usage{
-masking_model(formula, type, mask = NULL, ...)
+masking.model(formula, type, mask = NULL, ...)
 }
 
 \arguments{
@@ -21,14 +21,14 @@ masking_model(formula, type, mask = NULL, ...)
 \details{
 This function defines a masking model for the inclusion in the synthesis.
 Each masking model defines the relation between a variable and its masked copy as a \code{formula}, where the original variable is specified on the right-hand side of \code{formula} and the masked copy on the left-hand side (\code{`copy` ~ `original`}).
-Each masking model must be accompanied by a synthesis model for the respective variable as defined with \code{\link{synthesis_model}}.
-One or more of these models can be included in the synthesis by passing them to \code{\link{combine_models}}.
+Each masking model must be accompanied by a synthesis model for the respective variable as defined with \code{\link{synthesis.model}}.
+One or more of these models can be included in the synthesis by passing them to \code{\link{combine.models}}.
 
-The parameters of the masking model correspond to those that were used to generate the masked copies (with \code{\link{mask_continuous}} or \code{\link{mask_categorical}}).
+The parameters of the masking model correspond to those that were used to generate the masked copies (with \code{\link{mask.continuous}} or \code{\link{mask.categorical}}).
 Specifying the parameters is optional.
-If the parameters are not specified, \code{\link{combine_models}} will attempt to extract them from the data.
+If the parameters are not specified, \code{\link{combine.models}} will attempt to extract them from the data.
 
-For usage examples, see \code{\link{combine_models}}.
+For usage examples, see \code{\link{combine.models}}.
 }
 
 \value{
@@ -38,6 +38,6 @@ An object of class \code{robosynth.masking.model}.
 \author{Simon Grund}
 
 \seealso{
-\code{\link{combine_models}}, \code{\link{synthesis_model}}, \code{\link{mask_categorical}}, \code{\link{mask_continuous}}
+\code{\link{combine.models}}, \code{\link{synthesis.model}}, \code{\link{mask.categorical}}, \code{\link{mask.continuous}}
 }
 

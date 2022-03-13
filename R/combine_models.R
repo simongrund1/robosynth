@@ -1,6 +1,6 @@
 # // Combine and check synthesis models
 
-combine_models <- function(..., data) {
+combine.models <- function(..., data) {
 
   # model list
   models <- list(...)

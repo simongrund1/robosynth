@@ -11,13 +11,13 @@ synthesize <- function(models, m = 10, iter = 100, verbose = TRUE) {
   N <- nrow(data)
   Nv <- length(variables)
 
-  syn_vars <- process_variables(data = data, variables = variables)
-  syn_model_names <- process_synthesis_models(
+  syn_vars <- process.variables(data = data, variables = variables)
+  syn_model_names <- process.synthesis.models(
     models = models, data = data, variables = variables
   )
 
   # fit models
-  syn_models <- fit_synthesis_models(models = models, data = data)
+  syn_models <- fit.synthesis.models(models = models, data = data)
 
   # create output objects
   syn_list <- vector("list", m)
@@ -55,8 +55,8 @@ synthesize <- function(models, m = 10, iter = 100, verbose = TRUE) {
             var_mm <- model_names_vv[mm]
             model_mm <- syn_models[[var_mm]]
 
-            ll_old <- evaluate_loglik(model = model_mm, outcome = var_mm, data = data)
-            ll_new <- evaluate_loglik(model = model_mm, outcome = var_mm, data = new_data)
+            ll_old <- evaluate.loglik(model = model_mm, outcome = var_mm, data = data)
+            ll_new <- evaluate.loglik(model = model_mm, outcome = var_mm, data = new_data)
             loglik_old <- loglik_old + ll_old
             loglik_new <- loglik_new + ll_new
 
@@ -90,7 +90,7 @@ synthesize <- function(models, m = 10, iter = 100, verbose = TRUE) {
               var_mm <- model_names_vv[mm]
               model_mm <- syn_models[[var_mm]]
 
-              ll <- evaluate_loglik(model = model_mm, outcome = var_mm, data = new_data)
+              ll <- evaluate.loglik(model = model_mm, outcome = var_mm, data = new_data)
               loglik[, cc] <- loglik[, cc] + ll
 
             }
@@ -98,13 +98,13 @@ synthesize <- function(models, m = 10, iter = 100, verbose = TRUE) {
           } # end loop (category)
 
           # compute normalized category probabilities
-          loglik_max <- matrix(rep(rowMax_matrix(loglik), Nc), nrow = N, ncol = Nc)
+          loglik_max <- matrix(rep(rowMax.matrix(loglik), Nc), nrow = N, ncol = Nc)
           lik <- exp(loglik - loglik_max)
           lik_cons <- matrix(rep(rowSums(lik), Nc), nrow = N, ncol = Nc)
           p_post <- lik / lik_cons
 
           # sample values
-          value_vv <- sample_categorical(n = N, k = Nc, probs = p_post)
+          value_vv <- sample.categorical(n = N, k = Nc, probs = p_post)
           data[[var_vv]][] <- syn_vars[[var_vv]]$levels[value_vv]
 
         } # end if (cases)

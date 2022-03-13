@@ -1,6 +1,6 @@
 # // Synthesis model specification (internals)
 
-check_model_formula <- function(formula, max.vars = NULL) {
+check.model.formula <- function(formula, max.vars = NULL) {
 
   term <- terms(formula)
   vars <- all.vars(formula)

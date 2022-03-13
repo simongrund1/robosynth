@@ -1,5 +1,5 @@
-\name{mask_continuous}
-\alias{mask_continuous}
+\name{mask.continuous}
+\alias{mask.continuous}
 
 \title{Create masked copies of continuous variables}
 
@@ -8,7 +8,7 @@ Creates masked copies of continuous variables.
 }
 
 \usage{
-mask_continuous(x, reliability, .sd)
+mask.continuous(x, reliability, .sd)
 }
 
 \arguments{
@@ -43,12 +43,12 @@ A numeric variable with masked values.
 \examples{
 # using 'reliability'
 sociosexuality <- within(sociosexuality, {
-  m_age <- mask_continuous(age, reliability = .90)
+  m_age <- mask.continuous(age, reliability = .90)
 })
 
 # equivalent specification using '.sd'
 sociosexuality <- within(sociosexuality, {
-  m_age <- mask_continuous(age, .sd = 0.9253846)
+  m_age <- mask.continuous(age, .sd = 0.9253846)
 })
 }
 

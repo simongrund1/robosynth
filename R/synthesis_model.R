@@ -1,12 +1,12 @@
 # // Synthesis model specification (synthesis model constructor)
 
-synthesis_model <- function(formula, type, fixed = FALSE, proposal = NULL, ...) {
+synthesis.model <- function(formula, type, fixed = FALSE, proposal = NULL, ...) {
 
   type <- match.arg(type, choices = c("continuous", "binary", "categorical"))
   dots <- list(...)
 
   # check input
-  check_model_formula(formula)
+  check.model.formula(formula)
 
   if (type != "continuous" && !is.null(proposal)) {
     warning("The 'proposal' argument only applies to continuous variables.")

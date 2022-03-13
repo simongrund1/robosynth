@@ -41,21 +41,21 @@ For \code{within} an object of class \code{robosynth.list} (a list of synthetic 
 \examples{
 # create masked copies
 sociosexuality <- within(sociosexuality, {
-  m_sex <- mask_categorical(sex, probability = .80)
-  m_sexpref <- mask_categorical(sexpref, probability = .60)
-  m_age <- mask_continuous(age, reliability = .90)
+  m_sex <- mask.categorical(sex, probability = .80)
+  m_sexpref <- mask.categorical(sexpref, probability = .60)
+  m_age <- mask.continuous(age, reliability = .90)
 })
 
 # combine synthesis and masking models
-models <- combine_models(
+models <- combine.models(
 
-  synthesis_model(sex ~ 1, type = "binary"),
-  synthesis_model(sexpref ~ 1 + sex, type = "categorical"),
-  synthesis_model(age ~ 1 + sex + sexpref, type = "continuous"),
+  synthesis.model(sex ~ 1, type = "binary"),
+  synthesis.model(sexpref ~ 1 + sex, type = "categorical"),
+  synthesis.model(age ~ 1 + sex + sexpref, type = "continuous"),
 
-  masking_model(m_sex ~ sex, type = "binary"),
-  masking_model(m_sexpref ~ sexpref, type = "categorical"),
-  masking_model(m_age ~ age, type = "continuous"),
+  masking.model(m_sex ~ sex, type = "binary"),
+  masking.model(m_sexpref ~ sexpref, type = "categorical"),
+  masking.model(m_age ~ age, type = "continuous"),
 
   data = sociosexuality
 

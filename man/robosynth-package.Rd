@@ -9,7 +9,7 @@
 Provides methods for synthetic data generation using the data-augmented multiple imputation (DA-MI) approach by Jiang et al. (2021) and tools for handling and analyzing synthetic data.
 
 The DA-MI approach combines masking and imputation procedures by including masked copies of the original data in the synthesis model.
-This package provides functions for creating masked copies of different variables types (\code{\link{mask_continuous}} and \code{\link{mask_categorical}}), specifying the synthesis model (\code{\link{synthesis_model}}, \code{\link{masking_model}}, and \code{\link{combine_models}}), generating synthetic data (\code{\link{synthesize}}), and analyzing the synthetic data (e.g., \code{with}, \code{pool}).
+This package provides functions for creating masked copies of different variables types (\code{\link{mask.continuous}} and \code{\link{mask.categorical}}), specifying the synthesis model (\code{\link{synthesis.model}}, \code{\link{masking.model}}, and \code{\link{combine.models}}), generating synthetic data (\code{\link{synthesize}}), and analyzing the synthetic data (e.g., \code{with}, \code{pool}).
 }
 
 \references{
