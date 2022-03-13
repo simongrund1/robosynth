@@ -1,8 +1,8 @@
 Package: robosynth
 Type: Package
 Title: Robust Synthetic Data Generation with Data-Augmented Multiple Imputation
-Version: 0.1-0
-Date: 2021-07-20
+Version: 0.1-1
+Date: 2022-03-03
 Author:  Simon Grund [aut,cre], Alexander Robitzsch [aut,cre], Oliver Luedtke [aut]
 Maintainer: Simon Grund <grund@ipn.uni-kiel.de>
 BugReports: https://github.com/simongrund1/robosynth/issues
