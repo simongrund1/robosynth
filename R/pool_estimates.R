@@ -1,6 +1,6 @@
 # // Pooling of parameter estimates
 
-pool <- function(model) {
+pool.estimates <- function(model) {
 
   m <- length(model)
 
@@ -26,7 +26,7 @@ pool <- function(model) {
     estimates = cbind(est = qbar, se = se, df = nu, t_val = t_val, p_val = p_val)
   )
 
-  class(out) <- "robosynth.pooled"
+  class(out) <- "robosynth.pooled.estimates"
   return(out)
 
 }

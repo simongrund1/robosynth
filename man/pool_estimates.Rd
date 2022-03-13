@@ -1,5 +1,5 @@
-\name{pool}
-\alias{pool}
+\name{pool.estimates}
+\alias{pool.estimates}
 
 \title{Pool analysis results in synthetic data}
 
@@ -8,7 +8,7 @@ Pools the results of statistical analyses that were conducted with the synthetic
 }
 
 \usage{
-pool(model)
+pool.estimates(model)
 }
 
 \arguments{
@@ -20,7 +20,7 @@ This function pools the parameter estimates and standard errors of statistical m
 }
 
 \value{
-An object of class \code{robosynth.pooled}.
+An object of class \code{robosynth.pooled.estimates}.
 }
 
 \references{
@@ -37,22 +37,22 @@ Reiter, J. P. (2003). Inference for partially synthetic, public use microdata se
 # create masked copies
 sociosexuality <- within(sociosexuality, {
 
-  m_sex <- mask_categorical(sex, probability = .80)
-  m_sexpref <- mask_categorical(sexpref, probability = .60)
-  m_age <- mask_continuous(age, reliability = .90)
+  m_sex <- mask.categorical(sex, probability = .80)
+  m_sexpref <- mask.categorical(sexpref, probability = .60)
+  m_age <- mask.continuous(age, reliability = .90)
 
 })
 
 # combine synthesis and masking models
-models <- combine_models(
+models <- combine.models(
 
-  synthesis_model(sex ~ 1, type = "binary"),
-  synthesis_model(sexpref ~ 1 + sex, type = "categorical"),
-  synthesis_model(age ~ 1 + sex + sexpref, type = "continuous"),
+  synthesis.model(sex ~ 1, type = "binary"),
+  synthesis.model(sexpref ~ 1 + sex, type = "categorical"),
+  synthesis.model(age ~ 1 + sex + sexpref, type = "continuous"),
 
-  masking_model(m_sex ~ sex, type = "binary"),
-  masking_model(m_sexpref ~ sexpref, type = "categorical"),
-  masking_model(m_age ~ age, type = "continuous"),
+  masking.model(m_sex ~ sex, type = "binary"),
+  masking.model(m_sexpref ~ sexpref, type = "categorical"),
+  masking.model(m_age ~ age, type = "continuous"),
 
   data = sociosexuality
 
@@ -68,5 +68,5 @@ synlist <- extract(syn)
 fit <- with(synlist, lm(age ~ sex))
 
 # pool results
-pool(fit)
+pool.estimates(fit)
 }
